@@ -1,0 +1,439 @@
+/*
+ * 3D-karusell för konstgalleri
+ *
+ * Inspiration och grundidé från Hoang Tran:
+ * https://github.com/HoangTran0410/3DCarousel
+ *
+ * Jag har byggt vidare med egen kodstruktur, responsiv design,
+ * overlay-funktionalitet och interaktiva filter.
+ *
+ * Författare: Meliss Asya Korkmaz
+ * Datum: 2025-06-08
+*/
+
+/* === BAS & TYPOGRAFI === */
+
+/* Importerar typsnitt från Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap");
+
+/* Nollställer standardmarginal och padding för alla element */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Gör att sidan fyller hela höjden och förhindrar sidscroll horisontellt */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden; /* Förhindrar horisontell scroll */
+  overflow-y: auto; /* Tillåter vertikal scroll */
+}
+
+/* Grundläggande stil för body – flexlayout, bakgrundsfärg, textfärg och typsnitt */
+body {
+  display: flex;
+  background: #0a0a0a;
+  color: #aeaeae;
+  font-family: "Lexend Exa", sans-serif;
+}
+
+/* Sidrubrik – centrerad med padding under */
+h1 {
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+/* === LAYOUTWRAPPER === */
+
+/* Centrerar innehållet och begränsar bredden */
+#wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === HEADER === */
+
+/* Staplar headerns barn vertikalt och centrerar dem horisontellt */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 0.6rem;
+}
+
+/* Avstånd mellan header och huvudinnehåll */
+main {
+  padding-top: 50px;
+}
+
+/* === 3D-KARUSELL === */
+
+/* Wrapper och karusell – 3D-inställningar och layout */
+#carousel-wrapper,
+#carousel {
+  position: relative;
+  display: flex;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-4deg);
+}
+
+/* Skapar vertikalt utrymme under karusellen */
+#carousel-wrapper {
+  margin-bottom: 50px;
+}
+
+/* Grundstorlek på karusellen + roteringsövergång */
+#carousel {
+  width: 180px;
+  height: 255px;
+  transition: transform 1s ease-in-out;
+  z-index: 1;
+}
+
+/* Spotlight-effekt som skapar ljus ovanpå karusellen */
+#spotlight {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 240px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  filter: blur(17px);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.95;
+  transition: background 0.8s ease;
+}
+
+/* === KARUSELLENS BILDER (KONSTVERK) === */
+
+/* Grundstil för varje bild i karusellen */
+#carousel img {
+  transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  filter: grayscale(100%) brightness(0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Hovereffekt på bild */
+#carousel img:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+  filter: grayscale(0%) brightness(1.1);
+  z-index: 20;
+  cursor: pointer;
+}
+
+/* === GRUNDLJUS UNDER KARUSELLEN === */
+
+#ground {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(81deg);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.067) 20%,
+    transparent 67%
+  );
+}
+
+/* === NAVIGERINGSPILAR FÖR KARUSELL === */
+
+/* Placering och klicklogik */
+#carousel-control {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Gemensam stil för båda pilar */
+#carousel-control button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+/* Placering av vänsterpil */
+#carousel-control button:first-child {
+  left: -20rem;
+}
+
+/* Placering av högerpil */
+#carousel-control button:last-child {
+  right: -20rem;
+}
+
+/* Pilar som CSS-symboler */
+#carousel-control button::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  transform: rotate(45deg);
+}
+
+#carousel-control button:first-child::before {
+  transform: rotate(-135deg);
+}
+
+#carousel-control button:last-child::before {
+  transform: rotate(45deg);
+}
+
+/* Hovereffekt för pilar */
+#carousel-control button:hover::before {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* === FOOTER === */
+
+/* Stil för sidfoten */
+footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #aaa;
+  padding: 50px 0 0 0;
+}
+
+/* === OVERLAY – popup vid klick på konstverk === */
+
+/* Själva overlayen – centrerad popup med bakgrund */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: rgba(10, 10, 10, 0.2);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  will-change: opacity;
+}
+
+/* När overlay visas */
+#overlay:not(.hidden) {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* När overlay döljs */
+#overlay.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Innehållsboxen i overlay */
+#overlay-content {
+  border-radius: 5px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  color: #eee;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(10, 10, 10, 0.95);
+}
+
+/* Stängknapp (X) */
+#overlay-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Rubrik för konstverket */
+#overlay-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #f0f0f0;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+/* Metadata om konstverket */
+#overlay-year,
+#overlay-medium,
+#overlay-size {
+  font-size: 0.73rem;
+  margin-bottom: 0.5rem;
+  line-height: 0.9;
+  color: #ccc;
+  text-align: center;
+  font-weight: 200;
+}
+
+/* Beskrivningstext */
+#overlay-desc {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #ccc;
+  text-align: center;
+  padding: 0 3rem;
+  letter-spacing: -0.7px;
+}
+
+/* Visar bild av konstverket i overlay */
+#overlay-image {
+  margin: 1rem 0;
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* === RESPONSIV DESIGN – olika skärmstorlekar === */
+
+@media (max-width: 900px) {
+  /* Justerar pilar och overlay för mellan-stora skärmar */
+  #carousel-control button:first-child {
+    left: -16rem;
+  }
+  #carousel-control button:last-child {
+    right: -16rem;
+  }
+  #overlay-image {
+    max-height: 50vh;
+  }
+  #overlay-content {
+    padding: 1.2rem;
+    max-width: 95%;
+    font-size: 0.9rem;
+  }
+  #overlay-desc {
+    padding: 0 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* För tablets */
+  #carousel {
+    width: 90px;
+    height: 130px;
+  }
+  #spotlight {
+    width: 130px;
+    height: 230px;
+  }
+  #ground {
+    width: 300px;
+    height: 300px;
+  }
+  #overlay-title {
+    font-size: 1.5rem;
+  }
+  #overlay-year,
+  #overlay-medium,
+  #overlay-size {
+    font-size: 0.6rem;
+  }
+  #overlay-desc {
+    font-size: 0.7rem;
+    padding: 0 5rem;
+  }
+  #carousel-control button:first-child {
+    left: -6rem;
+  }
+  #carousel-control button:last-child {
+    right: -6rem;
+  }
+  #carousel-control button::before {
+    width: 1rem;
+    height: 1rem;
+    border-top-width: 2px;
+    border-right-width: 2px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* För mobiler */
+  #carousel {
+    width: 60px;
+    height: 90px;
+  }
+  #spotlight {
+    width: 100px;
+    height: 160px;
+  }
+  #ground {
+    width: 200px;
+    height: 200px;
+  }
+  #overlay-content {
+    padding: 1rem;
+    max-width: 95%;
+    font-size: 0.8rem;
+  }
+  #overlay-title {
+    font-size: 1.1rem;
+  }
+  #overlay-desc {
+    font-size: 0.6rem;
+  }
+  #carousel-control button:first-child {
+    left: -2.5rem;
+  }
+  #carousel-control button:last-child {
+    right: -2.5rem;
+  }
+  #carousel-control button::before {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-top-width: 2px;
+    border-right-width: 2px;
+  }
+}
