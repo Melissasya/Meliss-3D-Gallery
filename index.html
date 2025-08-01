@@ -1,0 +1,143 @@
+<!--
+ * 3D-karusell för konstgalleri
+ *
+ * Inspiration och grundidé från Hoang Tran:
+ * https://github.com/HoangTran0410/3DCarousel
+ *
+ * Jag har byggt vidare med egen kodstruktur, responsiv design,
+ * overlay-funktionalitet och interaktiva filter.
+ *
+ * Författare: Meliss Asya Korkmaz
+ * Datum: 2025-06-08
+ -->
+
+<!-- HTML5-dokumentdeklaration -->
+<!DOCTYPE html>
+<!-- Anger sidans språk för tillgänglighet och SEO -->
+<html lang="sv">
+  <head>
+    <!-- Teckenkodning för svenska tecken -->
+    <meta charset="UTF-8" />
+    <!-- Mobilanpassning -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Beskrivning för sökmotorer och sociala medier -->
+    <meta
+      name="description"
+      content="Ett interaktivt 3D-galleri av konstnären Meliss Asya."
+    />
+    <!-- Sidans titel i fliken -->
+    <title>Meliss Asya | Gallery</title>
+    <!-- Faviconer i olika format för bred kompatibilitet -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <!-- CSS-stilmallar: Normalize återställer stilar, style.css innehåller egen design -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- JavaScript-filer läses in efter att HTML laddats klart. data.js innehåller data om konstverken. -->
+    <script defer src="data.js"></script>
+    <!-- Script.js hanterar interaktioner i galleriet -->
+    <script defer src="script.js"></script>
+  </head>
+
+  <!-- Body -->
+  <body>
+    <!-- Wrapper samlar hela innehållet för enklare layout och centrering -->
+    <div id="wrapper">
+      <!-- Sidhuvud med logotyp och titel -->
+      <header>
+        <img src="img/Logo.svg" alt="Meliss Asya logga" id="logo" />
+        <h1>Meliss Asya | Gallery</h1>
+      </header>
+
+      <!-- Huvudinnehåll: det interaktiva galleriet -->
+      <main>
+        <!-- Wrapper håller 3D-karusellen, spotlight och kontroller -->
+        <div id="carousel-wrapper">
+          <!-- Karusellens roterande del; bilder positioneras i cirkel med CSS och JS -->
+          <div id="carousel">
+            <!-- Bilderna representerar konstverk och har spotlightfärg via data-attribut -->
+            <img
+              src="img/konstverk_1.jpg"
+              alt="Konstverk 1 - en tjej som håller upp handen för solen"
+              data-spotlight-color="#af3f15"
+            />
+            <img
+              src="img/konstverk_2.jpg"
+              alt="Konstverk 2 - en poster med bild på en kvinna med en blåtira för att symbolisera våld mot kvinnor"
+              data-spotlight-color="#dc9fd4"
+            />
+            <img
+              src="img/konstverk_3.jpg"
+              alt="Konstverk 3 - en modeskiss på en kvinna med en vit-röd klänning"
+              data-spotlight-color="#b51b11"
+            />
+            <img
+              src="img/konstverk_4.jpg"
+              alt="Konstverk 4 - en poster med bild på kvinnor som blir utsatta för våld för att symbolisera konflikten i Kongo-Kinshasa"
+              data-spotlight-color="#dd3e2d"
+            />
+            <img
+              src="img/konstverk_5.jpg"
+              alt="Konstverk 5 - abstrakt målning i rosa toner"
+              data-spotlight-color="#7272af"
+            />
+            <img
+              src="img/konstverk_6.jpg"
+              alt="Konstverk 6 - en tjej som tittar ut från fönstret i sin bil"
+              data-spotlight-color="#89a8c1"
+            />
+            <img
+              src="img/konstverk_7.jpg"
+              alt="Konstverk 7 - 2 hundar som skäller argt"
+              data-spotlight-color="#bbb253"
+            />
+            <img
+              src="img/konstverk_8.jpg"
+              alt="Konstverk  - en kvinna i turkisk folkdräkt"
+              data-spotlight-color="#729698"
+            />
+            <img
+              src="img/konstverk_9.jpg"
+              alt="Konstverk 9 - en modeskiss på en kvinna med en svart-vit klänning"
+              data-spotlight-color="#9e6829"
+            />
+          </div>
+          <!-- Spotlight-effekt som följer markerat verk -->
+          <div id="spotlight"></div>
+          <!-- Simulerar markgolv för 3D-känsla -->
+          <div id="ground"></div>
+          <!-- Navigeringsknappar för att rotera karusellen -->
+          <div id="carousel-control">
+            <button id="prev"></button>
+            <button id="next"></button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Overlay med detaljerad information om valt konstverk -->
+      <div id="overlay" class="hidden">
+        <div id="overlay-content">
+          <!-- Stäng-knapp -->
+          <button id="overlay-close" aria-label="Stäng">×</button>
+          <!-- Informationen i overlay (titel, beskrivning, förstorad bild,teknik, storlek och år) -->
+          <h2 id="overlay-title">Titel</h2>
+          <p id="overlay-desc">Beskrivning</p>
+          <img id="overlay-image" alt="Bild på konstverket" />
+          <p id="overlay-medium">Teknik</p>
+          <p id="overlay-size">Storlek</p>
+          <p id="overlay-year">År</p>
+        </div>
+      </div>
+
+      <!-- Sidfot med upphovsrätt -->
+      <footer>
+        <p>&copy; 2025 Meliss Asya</p>
+      </footer>
+    </div>
+  </body>
+</html>
