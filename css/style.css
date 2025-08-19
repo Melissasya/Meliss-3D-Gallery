@@ -341,10 +341,10 @@ footer {
 @media (max-width: 900px) {
   /* Justerar pilar och overlay för mellan-stora skärmar */
   #carousel-control button:first-child {
-    left: -16rem;
+    left: -17rem;
   }
   #carousel-control button:last-child {
-    right: -16rem;
+    right: -17rem;
   }
   #overlay-image {
     max-height: 50vh;
@@ -437,4 +437,5 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
