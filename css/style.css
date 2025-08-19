@@ -187,12 +187,12 @@ main {
 
 /* Placering av vänsterpil */
 #carousel-control button:first-child {
-  left: -40%;
+  left: -70%;
 }
 
 /* Placering av högerpil */
 #carousel-control button:last-child {
-  right: -40%;
+  right: -70%;
 }
 
 /* Pilar som CSS-symboler */
@@ -437,6 +437,7 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
 
 
