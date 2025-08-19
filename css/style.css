@@ -187,12 +187,12 @@ main {
 
 /* Placering av vänsterpil */
 #carousel-control button:first-child {
-  left: -70%;
+  left: -20rem;
 }
 
 /* Placering av högerpil */
 #carousel-control button:last-child {
-  right: -70%;
+  right: -20rem;
 }
 
 /* Pilar som CSS-symboler */
@@ -341,10 +341,10 @@ footer {
 @media (max-width: 900px) {
   /* Justerar pilar och overlay för mellan-stora skärmar */
   #carousel-control button:first-child {
-    left: -10%;
+    left: -16rem;
   }
   #carousel-control button:last-child {
-    right: -10%;
+    right: -16rem;
   }
   #overlay-image {
     max-height: 50vh;
@@ -386,10 +386,10 @@ footer {
     padding: 0 5rem;
   }
   #carousel-control button:first-child {
-    left: -5%;
+    left: -6rem;
   }
   #carousel-control button:last-child {
-    right: -5%;
+    right: -6rem;
   }
   #carousel-control button::before {
     width: 1rem;
@@ -425,10 +425,10 @@ footer {
     font-size: 0.6rem;
   }
   #carousel-control button:first-child {
-    left: -3%;
+    left: -2.5rem;
   }
   #carousel-control button:last-child {
-    right: -3%;
+    right: -2.5rem;
   }
   #carousel-control button::before {
     width: 0.8rem;
