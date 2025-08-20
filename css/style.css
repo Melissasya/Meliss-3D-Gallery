@@ -237,7 +237,7 @@ footer {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 70vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -437,6 +437,7 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
 
 
