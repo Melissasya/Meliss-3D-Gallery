@@ -21,7 +21,7 @@ const artData = [
   {
     title: "COURTSIDE",
     description:
-      "Sunny day on a tennis court, shielding her eyes from the sun.",
+      "Illustration",
     medium: "Medium: Watercolour",
     size: "Size: 20x30 cm",
     year: "Year: 2024",
@@ -30,7 +30,7 @@ const artData = [
   {
     title: "1 AV 3 KVINNOR",
     description:
-      "Poster design for an Amnesty event raising awareness about domestic violence against women.",
+      "Poster design",
     medium: "Medium: Digital art",
     size: "Size: A3",
     year: "Year: 2025",
@@ -39,7 +39,7 @@ const artData = [
   {
     title: "BLEEDING LOVE",
     description:
-      "Illustrated homage to Bleeding Love, Robert Wun’s haute couture wedding dress.",
+      "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 30×40 cm",
     year: "Year: 2024",
@@ -48,7 +48,7 @@ const artData = [
   {
     title: "MY BODY IS NO WEAPON!",
     description:
-      "Poster design for an Amnesty event highlighting the humanitarian crisis in Congo-Kinshasa.",
+      "Poster design",
     medium: "Medium: Digital art",
     size: "Size: A3",
     year: "Year: 2025",
@@ -56,7 +56,7 @@ const artData = [
   },
   {
     title: "LOKUM",
-    description: "Centered on the charm of Turkish delight.",
+    description: "Artwork",
     medium: "Medium: Mixed media",
     size: "Size: 60×90 cm",
     year: "Year: 2025",
@@ -65,7 +65,7 @@ const artData = [
   {
     title: "SUNSET DRIVE",
     description:
-      "Freedom, fashion, motion, sunshine - the essence of vacation.",
+      "Artwork",
     medium: "Medium: Watercolour",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -73,7 +73,7 @@ const artData = [
   },
   {
     title: "KANGAL",
-    description: "Two Kangals locked in a primal confrontation.",
+    description: "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -81,7 +81,7 @@ const artData = [
   },
   {
     title: "RUYA",
-    description: "A young turkish woman adorned in traditional attire.",
+    description: "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -90,10 +90,11 @@ const artData = [
   {
     title: "FLORAL MUSE",
     description:
-      "An illustration paying tribute to the iconic flower dress from Robert Wun’s homecoming collection.",
+      "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 30×40 cm",
     year: "Year: 2024",
     image: "img/konstverk_9.jpg",
   },
 ];
+
