@@ -20,8 +20,6 @@
 const artData = [
   {
     title: "COURTSIDE",
-    description:
-      "Illustration",
     medium: "Medium: Watercolour",
     size: "Size: 20x30 cm",
     year: "Year: 2024",
@@ -29,8 +27,6 @@ const artData = [
   },
   {
     title: "1 AV 3 KVINNOR",
-    description:
-      "Poster design",
     medium: "Medium: Digital art",
     size: "Size: A3",
     year: "Year: 2025",
@@ -38,8 +34,6 @@ const artData = [
   },
   {
     title: "BLEEDING LOVE",
-    description:
-      "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 30×40 cm",
     year: "Year: 2024",
@@ -47,8 +41,6 @@ const artData = [
   },
   {
     title: "MY BODY IS NO WEAPON!",
-    description:
-      "Poster design",
     medium: "Medium: Digital art",
     size: "Size: A3",
     year: "Year: 2025",
@@ -56,7 +48,6 @@ const artData = [
   },
   {
     title: "LOKUM",
-    description: "Artwork",
     medium: "Medium: Mixed media",
     size: "Size: 60×90 cm",
     year: "Year: 2025",
@@ -64,8 +55,6 @@ const artData = [
   },
   {
     title: "SUNSET DRIVE",
-    description:
-      "Artwork",
     medium: "Medium: Watercolour",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -73,7 +62,6 @@ const artData = [
   },
   {
     title: "KANGAL",
-    description: "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -81,7 +69,6 @@ const artData = [
   },
   {
     title: "RUYA",
-    description: "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 20×30 cm",
     year: "Year: 2024",
@@ -89,12 +76,11 @@ const artData = [
   },
   {
     title: "FLORAL MUSE",
-    description:
-      "Illustration",
     medium: "Medium: Mixed media",
     size: "Size: 30×40 cm",
     year: "Year: 2024",
     image: "img/konstverk_9.jpg",
   },
 ];
+
 
