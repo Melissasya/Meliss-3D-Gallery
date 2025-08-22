@@ -234,7 +234,8 @@ footer {
 /* Själva overlayen – centrerad popup med bakgrund */
 #overlay {
   position: fixed;
-  top: 20vh;
+  top: auto;
+  bottom: 40vh;
   left: 0;
   width: 100vw;
   height: 30vh;
@@ -437,6 +438,7 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
 
 
