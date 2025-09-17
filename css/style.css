@@ -229,114 +229,6 @@ footer {
   padding: 50px 0 0 0;
 }
 
-/* === OVERLAY – popup vid klick på konstverk === */
-
-/* Själva overlayen – centrerad popup med bakgrund */
-#overlay {
-  position: fixed;
-  top: auto;
-  bottom: 40vh;
-  left: 0;
-  width: 100vw;
-  height: 30vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 2rem;
-  box-sizing: border-box;
-  background-color: rgba(10, 10, 10, 0.2);
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease;
-  will-change: opacity;
-}
-
-/* När overlay visas */
-#overlay:not(.hidden) {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* När overlay döljs */
-#overlay.hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
-/* Innehållsboxen i overlay */
-#overlay-content {
-  border-radius: 5px;
-  padding: 2rem;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  color: #eee;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(10, 10, 10, 0.95);
-}
-
-/* Stängknapp (X) */
-#overlay-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  color: #eee;
-  font-size: 1.5rem;
-  cursor: pointer;
-  font-weight: 700;
-  line-height: 1;
-}
-
-/* Rubrik för konstverket */
-#overlay-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-  color: #f0f0f0;
-  text-align: center;
-  letter-spacing: -1px;
-}
-
-/* Metadata om konstverket */
-#overlay-year,
-#overlay-medium,
-#overlay-size {
-  font-size: 0.73rem;
-  margin-bottom: 0.5rem;
-  line-height: 0.9;
-  color: #ccc;
-  text-align: center;
-  font-weight: 200;
-}
-
-/* Beskrivningstext */
-#overlay-desc {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: #ccc;
-  text-align: center;
-  padding: 0 3rem;
-  letter-spacing: -0.7px;
-}
-
-/* Visar bild av konstverket i overlay */
-#overlay-image {
-  margin: 1rem 0;
-  max-width: 100%;
-  height: auto;
-  border-radius: 3px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  max-height: 60vh;
-  object-fit: contain;
-}
-
 /* === RESPONSIV DESIGN – olika skärmstorlekar === */
 
 @media (max-width: 900px) {
@@ -346,17 +238,6 @@ footer {
   }
   #carousel-control button:last-child {
     right: -17rem;
-  }
-  #overlay-image {
-    max-height: 50vh;
-  }
-  #overlay-content {
-    padding: 1.2rem;
-    max-width: 95%;
-    font-size: 0.9rem;
-  }
-  #overlay-desc {
-    padding: 0 8rem;
   }
 }
 
@@ -373,18 +254,6 @@ footer {
   #ground {
     width: 300px;
     height: 300px;
-  }
-  #overlay-title {
-    font-size: 1.5rem;
-  }
-  #overlay-year,
-  #overlay-medium,
-  #overlay-size {
-    font-size: 0.6rem;
-  }
-  #overlay-desc {
-    font-size: 0.7rem;
-    padding: 0 5rem;
   }
   #carousel-control button:first-child {
     left: -7rem;
@@ -414,17 +283,6 @@ footer {
     width: 200px;
     height: 200px;
   }
-  #overlay-content {
-    padding: 1rem;
-    max-width: 95%;
-    font-size: 0.8rem;
-  }
-  #overlay-title {
-    font-size: 1.1rem;
-  }
-  #overlay-desc {
-    font-size: 0.6rem;
-  }
   #carousel-control button:first-child {
     left: -3.5rem;
   }
@@ -438,6 +296,7 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
 
 
