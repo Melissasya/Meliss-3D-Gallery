@@ -256,7 +256,6 @@ footer {
 /* När overlay visas */
 #overlay:not(.hidden) {
   visibility: visible;
-  opacity: 1;
 }
 
 /* När overlay döljs */
@@ -438,6 +437,7 @@ footer {
     border-right-width: 2px;
   }
 }
+
 
 
 
