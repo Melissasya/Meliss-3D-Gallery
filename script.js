@@ -123,10 +123,20 @@ function updateImageFilters() {
   spotlight.style.background = `radial-gradient(circle at center, ${color} 0%, rgba(255,255,255,0) 80%)`;
 }
 
+// Lägger till klick-event på varje bild
+aEle.forEach((el, index) => {
+  el.style.cursor = "pointer";
+  el.addEventListener("click", () => {
+    // Roterar bilden till mitten
+    const anglePerItem = 360 / aEle.length;
+    tX = -index * anglePerItem;
+    enableTransition();
+    applyTransform();
 // Gör karusellen responsiv vid fönsterändring
 window.addEventListener("resize", updateRadiusBasedOnScreen);
 
 // Initierar allt vid sidladdning
 updateRadiusBasedOnScreen();
 init();
+
 
