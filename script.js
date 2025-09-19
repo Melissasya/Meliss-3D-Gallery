@@ -122,6 +122,18 @@ function updateImageFilters() {
     aEle[frontIndex].getAttribute("data-spotlight-color") || "#ffffff";
   spotlight.style.background = `radial-gradient(circle at center, ${color} 0%, rgba(255,255,255,0) 80%)`;
 }
+/**
+ * Overlay-funktion för att visa mer info om konstverket vid klick
+ * Hämtar data från `artData` och visar i panel
+ */
+const overlay = document.getElementById("overlay");
+const overlayTitle = document.getElementById("overlay-title");
+const overlayDesc = document.getElementById("overlay-desc");
+const overlayMedium = document.getElementById("overlay-medium");
+const overlaySize = document.getElementById("overlay-size");
+const overlayYear = document.getElementById("overlay-year");
+const overlayCloseBtn = document.getElementById("overlay-close");
+const overlayImage = document.getElementById("overlay-image");
 
 // Lägger till klick-event på varje bild
 aEle.forEach((el, index) => {
@@ -132,11 +144,38 @@ aEle.forEach((el, index) => {
     tX = -index * anglePerItem;
     enableTransition();
     applyTransform();
+
+    // Visar data från artData
+    const art = artData[index];
+    overlayTitle.textContent = art.title;
+    overlayDesc.textContent = art.description;
+    overlayMedium.textContent = art.medium;
+    overlaySize.textContent = art.size;
+    overlayYear.textContent = art.year;
+
+    // Visar bild i overlay
+    if (art.image) {
+      overlayImage.src = art.image;
+      overlayImage.alt = art.title || "Bild på konstverket";
+      overlayImage.style.display = "block";
+    } else {
+      overlayImage.src = "";
+      overlayImage.alt = "";
+      overlayImage.style.display = "none";
+    }
+
+    overlay.classList.remove("hidden");
+  });
+});
+
+// Stänger overlay med X-knapp
+overlayCloseBtn.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+});
+
 // Gör karusellen responsiv vid fönsterändring
 window.addEventListener("resize", updateRadiusBasedOnScreen);
 
 // Initierar allt vid sidladdning
 updateRadiusBasedOnScreen();
 init();
-
-
